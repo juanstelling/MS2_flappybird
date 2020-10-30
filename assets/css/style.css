@@ -10,6 +10,10 @@ html {
     width: 100%;
 }
 
+body { 
+    margin: 0;
+}
+
 h2 {
     font-family: "press Start 2P", sans-serif;
     color: #FFA3A3;
@@ -95,9 +99,33 @@ h2 {
     margin: 15px; 
 }
 
+/*------------------------------------- The game */ 
 
+.wrapper {
+   display: table;
+   padding: 0;
+   width: 100%;
+   height: 100%;
+   position: absolute;
+}
 
+.canvas-container {
+    position: relative;
+    max-width: 768px;
+    min-width: 320px;
+    max-height: 1024px;
+    margin: 0 auto;
+}
 
+canvas {
+    display: block;
+    margin: 0 auto;
+    height: 100vh;
+}
+
+#canvas {
+    width: 100%;
+}
 
 /*------------------------------------- Media Queries | for desktop and iPad pro */
 
@@ -111,7 +139,4 @@ h2 {
         position: relative;
         background-color: rgb(199 144 144 / 50%);
     }
-
-
-
 }
