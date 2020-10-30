@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://kit.fontawesome.com/e77f75aba8.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="assets/css/style.css">
         <title>Flappy Bird</title>
         
@@ -18,21 +19,37 @@
 
         <!-- Load Tests-->
         <script type="text/javascript" src="jasmine.testing/spec/calcSpec.js"></script>
-    
     </head>
 
     <body>
-    <!-- Welcome screen-->
-    <section>
-        <h2>See whack the walvis how they have done it</h2>
-    </section>
-    <!--../Welcome screen-->
+        <!-- Welcome screen-->
+        <section class="game-info">
+            <h2>Flappy</h2>
+            <h2>Bird</h2>
+            <h3 class="avatar">IMAGE Bird avatar</h3>
+            <p class="instruction">Press the space key or tap to avoid the pipes.</p>
+            <div class="buttons">
+                <button type="button" class="play-button">Play</button>
+                <button type="button" class="sound-button"><i class="fas fa-volume-up"></i></button>
+            </div>
+        </section>
+        <!--../Welcome screen-->
 
-    <!--Game over screen-->
-    <section>
-        <h2>Gameover block</h2>
-    </section>
-    <!--../Game over screen-->
-    </body>
+        <!--Game over screen-->
+        <section class="game-info">
+            <h2>Game Over</h2>
+            <div class="scoreboard">  
+                <p class="score">Score:</p>
+                <p class="score">5</p>
+                <p class="score">Best score:</p>
+                <p class="score">15</p>
+            </div>
+            <div class="buttons">
+                <button type="button" class="play-button">Play</button>
+                <button type="button" class="sound-button"><i class="fas fa-volume-up"></i></button>
+            </div>
+        </section> 
+        <!--../Game over screen-->
+    </body> 
 
 </html>
