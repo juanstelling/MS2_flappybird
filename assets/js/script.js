@@ -1,48 +1,69 @@
-// ----------------------------------------- Select CVS
-const cvs = document.getElementById("canvas");
-const ctx = cvs.getContext("2d");
+document.addEventListener('DOMContentLoaded', () => {
 
-// ----------------------------------------- background images 
-var buildings = new Image();
-buildings.src = "assets/images/buildings.png";
+    const bird = document.querySelector('.bird')
+    const pipe = document.querySelector('.pipe')
+    const gameDisplay = document.querySelector('.game')
+    const ground = document.querySelector('.ground')
 
-var black = new Image();
-black.src = "assets/images/black.png";
+    let birdLeft = 150;
+    let birdBottom = 300;
+    let gravity = 2;
 
-var star = new Image();
-star.src = "assets/images/star.png";
+    // START GAME
+    function startGame() {
+        birdBottom -= gravity;
+        bird.style.bottom = birdBottom + "px";
+        bird.style.left = birdLeft + "px";
+    }
+    let gametimerId = setInterval(startGame, 32) // How slow the bird is going down 
 
+    // CONTROL SET TO SPACE KEY (= 32)
+// hier moet nog mobile touch bij 
+    function control(e) {
+        if (e.keyCode === 32) {
+            jump()
+        };
+    };
 
-// ----------------------------------------- DRAW
+    // BIRD JUMPING
+    function jump() {
+        if (birdBottom < 480) birdBottom += 50;    // Bird can't jump higher than 480px & how much px the bird jumps 
+        bird.style.bottom = birdBottom + "px";
+        console.log(birdBottom)
+    }
+    document.addEventListener('keyup', control)
 
-function draw(){
-    ctx.fillStyle = "#3B6CB5";
-    ctx.fillRect(0, 0, cvs.width, cvs.height);
+    // PIPES
+    function pipes() {
+        let pipeLeft = 768;
+        let randomheight = Math.random() * 60; // random heights for the pipe 
+        let pipeBottom = randomheight;
+        pipe.style.bottom = pipeBottom + "px";
+        pipe.style.left = pipeLeft + "px";
 
-    ctx.drawImage(buildings, 0, 122, 130, 16)
-    ctx.drawImage(buildings, 125, 122, 130, 16)
-    ctx.drawImage(buildings, 250, 122, 130, 16)
-    ctx.drawImage(black, 0, 135, 400, 18)
-    ctx.drawImage(star, 20, 20, 10, 10)
-    ctx.drawImage(star, 90, 5, 10, 10)
-    ctx.drawImage(star, 250, 20, 10, 10)
+        function movePipe() {
+            pipeLeft -= 2;
+            pipe.style.left = pipeLeft + "px";
+
+            if (pipeLeft === -60) {
+                clearInterval(timerId)
+                gameDisplay.removeChild(pipe);
+            }
+        }
+        let timerId = setInterval(movePipe, 15); // snelheid bird
+
+    }
+    pipes()
 
    
-}
+    
 
-// ----------------------------------------- LOOP
+  
 
-function loop () {
+  
+   
 
-    draw()
-
-    requestAnimationFrame(loop);
-}
-
-loop();
-
-
-
+});
 
 
 
