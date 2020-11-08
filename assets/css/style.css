@@ -141,6 +141,7 @@ h2 {
     height: 10vh;
     position: absolute;
     top: 90%;
+    z-index: +1; /* op voorgrond */
 }
 
 #bird {
@@ -157,6 +158,14 @@ h2 {
     height: 300px;
     position: absolute;
 }
+
+.topPipe {
+    background-color: green;
+    width: 60px;
+    height: 300px;
+    position: absolute;
+}
+
 
 
 /*------------------------------------- Media Queries | for desktop and iPad pro */
